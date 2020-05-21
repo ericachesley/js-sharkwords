@@ -12,7 +12,7 @@ let numWrong = 0;
 //
 const createDivsForChars = (word) => {
   for (const letter of word) {
-    $('#word-container').append(`<div class=letter-box ${letter}></div>`);
+    $('#word-container').append(`<div class="letter-box ${letter}"></div>`);
   }
 };
 
@@ -54,7 +54,7 @@ const isLetterInWord = (letter) => {
 //
 const handleCorrectGuess = (letter) => {
   for (const div of $(`div.${letter}`)) {
-    div.html(`${letter}`);
+    $(div).html(`${letter}`);
   }
 };
 
@@ -65,7 +65,13 @@ const handleCorrectGuess = (letter) => {
 // message. Otherwise, increment `numWrong` and update the shark image.
 //
 const handleWrongGuess = () => {
-  // Replace this with your code
+  numWrong ++;
+  if (numWrong > 5) {
+    $('button').attr('disabled', true);
+    $('#play-again').show();
+  } else {
+    $('img').attr('src', `static/images/guess${numWrong}.png`);
+  };
 };
 
 
