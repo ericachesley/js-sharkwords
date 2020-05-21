@@ -78,7 +78,11 @@ const handleWrongGuess = () => {
 // Reset game state. Called before restarting the game.
 //
 const resetGame = () => {
-  // Replace this with your code
+  numWrong = 0;
+  $('img').attr('src', 'static/images/guess0.png');
+  $('#play-again').hide();
+  $('#word-container').empty();
+  $('#letter-buttons').empty();
 };
 
 
